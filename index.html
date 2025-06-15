@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מאמן תווים ומרווחים לנסהיא המתוקה</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 5vh 5vw;
+      direction: rtl;
+    }
+
+    h1 {
+      font-size: 6vw;
+      margin-bottom: 6vh;
+      color: #333;
+    }
+
+    .output {
+      font-size: 8vw;
+      margin: 6vh 0;
+      color: #222;
+      font-weight: bold;
+    }
+
+    button {
+      font-size: 5vw;
+      padding: 3vh 5vw;
+      border: none;
+      border-radius: 10px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 3vw; }
+      .output { font-size: 4vw; }
+      button { font-size: 2vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎵 מאמן תווים ומרווחים לנסהיא המתוקה</h1>
+
+  <div class="output" id="display">לחצי על הכפתור להתחלה</div>
+  <button onclick="generate()">🎼 קבלי תו ומרווח אקראיים</button>
+
+  <script>
+    const notes = [
+      'דו', 'דו♯', 'רה♭', 'רה', 'רה♯', 'מי♭', 'מי',
+      'פה', 'פה♯', 'סול♭', 'סול', 'סול♯',
+      'לה♭', 'לה', 'לה♯', 'סי♭', 'סי'
+    ];
+
+    const intervals = [
+      'יוניסון',
+      'סקונדה קטנה',
+      'סקונדה גדולה',
+      'טרצה קטנה',
+      'טרצה גדולה',
+      'קוורטה זכה',
+      'טריטון',
+      'קווינטה זכה',
+      'סקסטה קטנה',
+      'סקסטה גדולה',
+      'ספטימה קטנה',
+      'ספטימה גדולה',
+      'אוקטבה'
+    ];
+
+    function generate() {
+      const note = notes[Math.floor(Math.random() * notes.length)];
+      const interval = intervals[Math.floor(Math.random() * intervals.length)];
+      document.getElementById('display').textContent = `${note} + ${interval}`;
+    }
+  </script>
+
+</body>
+</html>
