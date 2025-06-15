@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>מאמן תווים ומרווחים לנסהיא המתוקה</title>
+  <title>מאמן אקורדים</title>
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #f0f0f0;
+      background-color: #f9f9f9;
       text-align: center;
       margin: 0;
       padding: 5vh 5vw;
@@ -16,7 +16,7 @@
 
     h1 {
       font-size: 6vw;
-      margin-bottom: 6vh;
+      margin-bottom: 4vh;
       color: #333;
     }
 
@@ -25,6 +25,12 @@
       margin: 6vh 0;
       color: #222;
       font-weight: bold;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
     }
 
     button {
@@ -51,10 +57,15 @@
 </head>
 <body>
 
-  <h1>🎵 מאמן תווים ומרווחים לנסהיא המתוקה</h1>
+  <h1>🎶מאמנת אקורדים לנסהיא האהובה </h1>
 
-  <div class="output" id="display">לחצי על הכפתור להתחלה</div>
-  <button onclick="generate()">🎼 קבלי תו ומרווח אקראיים</button>
+  <div class="output" id="display">בחרי סוג אקורד להתחלה</div>
+
+  <div class="button-group">
+    <button onclick="generate('basic')">🎵 משולשים בסיסיים</button>
+    <button onclick="generate('extended')">🎶 משולשים מורחבים</button>
+    <button onclick="generate('tetrads')">🎼 טטרקורדים בסיסיים</button>
+  </div>
 
   <script>
     const notes = [
@@ -63,26 +74,21 @@
       'לה♭', 'לה', 'לה♯', 'סי♭', 'סי'
     ];
 
-    const intervals = [
-      'יוניסון',
-      'סקונדה קטנה',
-      'סקונדה גדולה',
-      'טרצה קטנה',
-      'טרצה גדולה',
-      'קוורטה זכה',
-      'טריטון',
-      'קווינטה זכה',
-      'סקסטה קטנה',
-      'סקסטה גדולה',
-      'ספטימה קטנה',
-      'ספטימה גדולה',
-      'אוקטבה'
-    ];
+    const chords = {
+      basic: ['מז׳ור', 'מינור'],
+      extended: ['מז׳ור', 'מינור', 'מוקטן', 'מוגדל'],
+      tetrads: [
+        'דומיננט 7 (G7)',
+        'מז׳ור 7 (Cmaj7 / CΔ7)',
+        'מינור 7 (Dm7)',
+        'חצי מוקטן (B∅7)'
+      ]
+    };
 
-    function generate() {
+    function generate(type) {
       const note = notes[Math.floor(Math.random() * notes.length)];
-      const interval = intervals[Math.floor(Math.random() * intervals.length)];
-      document.getElementById('display').textContent = `${note} + ${interval}`;
+      const chord = chords[type][Math.floor(Math.random() * chords[type].length)];
+      document.getElementById('display').textContent = `${note} ${chord}`;
     }
   </script>
 
